@@ -30,7 +30,7 @@ void menu()
 {
 	int op = 0;
 	while (op != 7) {
-		system("cls"); // somente no windows
+		system("cls"); 
 		cout << "Menu Lista Ligada";
 		cout << endl << endl;
 		cout << "1 - Inicializar Lista \n";
@@ -64,14 +64,13 @@ void menu()
 			break;
 		}
 
-		system("pause"); // somente no windows
+		system("pause"); 
 	}
 }
 
+
 void inicializar()
 {
-	// se a lista já possuir elementos
-// libera a memoria ocupada
 	NO* aux = primeiro;
 	while (aux != NULL) {
 		NO* paraExcluir = aux;
@@ -167,12 +166,15 @@ void excluirElemento()
 	while (atual != NULL && atual->valor < valor) {
 		anterior = atual;
 		atual = atual->prox;
-	} if (atual != NULL && atual-> valor == valor) {
-		if (anterior = NULL) {
+	} if (atual != NULL && atual->valor == valor) {
+		if (anterior == NULL) {
 			primeiro = atual->prox;
 		}
+		else {
+			anterior->prox = atual->prox;
+		}
 		free(atual);
-		cout << "O elemento foi excluido com sucesso" << endl;
+			cout << "O elemento foi excluido com sucesso" << endl;
 	}
 	else {
 		cout << "O elemento digitado nao foi encontrado." << endl;
